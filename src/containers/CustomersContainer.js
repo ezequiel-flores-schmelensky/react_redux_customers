@@ -7,23 +7,6 @@ import CustomersList from './../components/CustomersList';
 import CustomerActions from './../components/CustomerActions';
 import { fetchCustomers } from './../actions/fetchCustomers';
 
-const customers = [
-    {
-        "dni": "adsd",
-        "name": "Juan Perez",
-        "age": 37
-    },
-    {
-        "dni": "sdfsdf",
-        "name": "Jotro",
-        "age": 37
-    },
-    {   
-        "dni": "fghgfh",
-        "name": "otro",
-        "age": 37
-    }
-];
 
 class CustomersContainer extends Component {
 
@@ -48,7 +31,7 @@ class CustomersContainer extends Component {
     render() {
         return (
             <div>
-                <AppFrame header={'Listado de clientes'} body={this.renderBody(customers)}></AppFrame>       
+                <AppFrame header={'Listado de clientes'} body={this.renderBody(this.props.customers)}></AppFrame>       
             </div>
         );
     }
@@ -56,8 +39,27 @@ class CustomersContainer extends Component {
 
 CustomersContainer.propTypes = {
     fetchCustomers: PropTypes.func.isRequired,
+    customers: PropTypes.array.isRequired,
 }
 
-//const mapDispatchToProps = { fetchCustomers };
+CustomersContainer.defaultProps = {
+    customers: [
+        {
+            "dni": "adsd",
+            "name": "Juan Perez",
+            "age": 37
+        },
+        {
+            "dni": "sdfsdf",
+            "name": "Jotro",
+            "age": 37
+        },
+        {   
+            "dni": "fghgfh",
+            "name": "otro",
+            "age": 37
+        }
+    ]
+}
 
 export default withRouter(connect(null, { fetchCustomers })(CustomersContainer));
