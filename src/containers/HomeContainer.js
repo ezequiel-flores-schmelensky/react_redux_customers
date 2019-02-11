@@ -30,8 +30,4 @@ class HomeContainer extends Component {
     }
 }
 
-HomeContainer.propTypes = {
-
-};
-
 export default withRouter(HomeContainer);
