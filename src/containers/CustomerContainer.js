@@ -21,7 +21,7 @@ CustomerContainer.propTypes = {
 };
 
 const mapStateToProps = (state, props) => ({
-    customer:state.customer.find(c => c.dni === props.dni)
+    customer:state.customers.find(c => c.dni === props.dni)
 });
 
 export default connect(mapStateToProps,null)(CustomerContainer);
