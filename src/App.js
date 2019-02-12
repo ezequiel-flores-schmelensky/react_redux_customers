@@ -17,8 +17,8 @@ class App extends Component {
           <Route exact path="/" component={HomeContainer}/>
           <Route exact path="/customers" component={CustomersContainer}/>
           <Switch>
-            <Route exact path="/customers/new" component={this.renderCustomersListContainer}/>
-            <Route exact path="/customers/:dni" component={CustomerContainer}/>
+            <Route path="/customers/new" component={this.renderCustomersListContainer}/>
+            <Route path="/customers/:dni" component={CustomerContainer}/>
           </Switch>
           </div>
       </Router>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import AppFrame from '../components/AppFrame';
+import AppFrame from './../components/AppFrame';
 
 class CustomerContainer extends Component {
     render() {
