@@ -12,7 +12,7 @@ class CustomerContainer extends Component {
         <Route path="/customers/:dni/edit" children={
             ( { match } ) => {
                 const Customercontrol = match ? CustomerEdit : CustomerData;
-                return <Customercontrol {...this.props.customer} />
+                return <Customercontrol initialValues={this.props.customer} />
             }
         } />
     )
@@ -31,7 +31,6 @@ class CustomerContainer extends Component {
 
 CustomerContainer.propTypes = {
     dni:PropTypes.string.isRequired,
-    customer: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state, props) => ({
