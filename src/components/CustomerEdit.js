@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
 
@@ -30,4 +31,5 @@ CustomerEdit.propTypes = {
     age: PropTypes.number,
 };
 
-export default reduxForm({ form: 'CustomerEdit' })(CustomerEdit);
+const CustomerEditForm = reduxForm({ form: 'CustomerEdit' })(CustomerEdit);
+export default connect((state, props) => ( { initialValues: props } ))(CustomerEditForm);

@@ -12,7 +12,7 @@ class CustomerContainer extends Component {
         <Route path="/customers/:dni/edit" children={
             ( { match } ) => {
                 const Customercontrol = match ? CustomerEdit : CustomerData;
-                return <Customercontrol initialValues={this.props.customer} />
+                return <Customercontrol {...this.props.customer} />
             }
         } />
     )
