@@ -8,6 +8,7 @@ import CustomerEdit from './../components/CustomerEdit';
 import CustomerData from './../components/CustomerData';
 import { fetchCustomers } from './../actions/fetchCustomers';
 import { updateCustomers } from './../actions/updateCustomer';
+import { SubmissionError } from 'redux-form';
 
 class CustomerContainer extends Component {
     
@@ -20,7 +21,11 @@ class CustomerContainer extends Component {
     handleSubmit = values => {
         console.log(JSON.stringify(values));
         const { id } = values;
-        return this.props.updateCustomers(id, values);
+        return this.props.updateCustomers(id, values).then(r => {
+            if (r.error) {
+                throw new SubmissionError(r.payload);
+            }
+        });
     }
     
     handleOnBack = () => {

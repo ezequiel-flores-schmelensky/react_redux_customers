@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
 import { setPropsAsInitial } from '../helpers/setPropsAsInitial';
 import CustomerActions from './CustomerActions';
+import { Prompt } from 'react-router-dom';
 
 /*const isRequired = value => (
     !value && "Este campo es requerido"
@@ -41,9 +42,9 @@ const toNumber = value => value && Number(value);
 const toUpper = value => value && value.toUpperCase();
 const toLower = value => value && value.toLowerCase();
 const onlyGrow = (value, previousValue, values) => 
-    value && previousValue && (value > previousValue ? value : previousValue);
+    value && (!previousValue ? value : (value > previousValue ? value : previousValue));
 
-const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack }) => {
+const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack, pristine, submitSucceeded }) => {
     return (
         <div>
             <h2>Edición del cliente</h2>
@@ -69,9 +70,13 @@ const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack }) => {
                     parse={toNumber}
                     normalize={onlyGrow}></Field>
                 <CustomerActions>
-                    <button type="submit" disabled={submitting}>Aceptar</button>
-                    <button onClick={onBack}>Cancelar</button>
+                    <button type="submit" disabled={pristine || submitting}>Aceptar</button>
+                    <button type="button" disabled={submitting} onClick={onBack}>Cancelar</button>
                 </CustomerActions>
+                <Prompt 
+                    when={!pristine && !submitSucceeded}
+                    message="Se perderán los datos si continua">
+                </Prompt>
             </form>
         </div>
     );
