@@ -27,11 +27,13 @@ class CustomerContainer extends Component {
     renderBody = () => (
         <Route path="/customers/:dni/edit" children={
             ( { match } ) => {
-                const Customercontrol = match ? CustomerEdit : CustomerData;
-                return <Customercontrol {...this.props.customer} 
-                    onSubmit={this.handleSubmit}
-                    onBack={this.handleOnBack}
-                />
+                if (this.props.customer) {
+                    const Customercontrol = match ? CustomerEdit : CustomerData;
+                    return <Customercontrol {...this.props.customer} 
+                        onSubmit={this.handleSubmit}
+                        onBack={this.handleOnBack} />
+                }
+                return null;
             }
         } />
     )
