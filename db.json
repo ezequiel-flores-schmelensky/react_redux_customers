@@ -17,6 +17,24 @@
       "dni": "87654321",
       "name": "otro",
       "age": 37
+    },
+    {
+      "name": "JUAN PER",
+      "dni": "132",
+      "age": 1,
+      "id": "8Sg3l7O"
+    },
+    {
+      "name": "OTRO",
+      "dni": "233",
+      "age": 1,
+      "id": "HIuz8Hr"
+    },
+    {
+      "name": "RAUL",
+      "dni": "12321",
+      "age": 1,
+      "id": "NHzeWv-"
     }
   ],
   "posts": [
