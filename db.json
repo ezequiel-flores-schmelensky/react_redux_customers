@@ -1,19 +1,22 @@
 {
   "customers": [
     {
-        "dni": "adsd",
-        "name": "Juan Perez",
-        "age": 37
+      "id": "12344567",
+      "dni": "12344567",
+      "name": "Juan Peres",
+      "age": 37
     },
     {
-        "dni": "sdfsdf",
-        "name": "Jotro",
-        "age": 37
+      "id": "12345678",
+      "dni": "12345678",
+      "name": "Jotro",
+      "age": 37
     },
-    {   
-        "dni": "fghgfh",
-        "name": "otro",
-        "age": 37
+    {
+      "id": "87654321",
+      "dni": "87654321",
+      "name": "otro",
+      "age": 37
     }
   ],
   "posts": [
