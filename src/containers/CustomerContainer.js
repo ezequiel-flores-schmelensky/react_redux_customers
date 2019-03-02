@@ -9,7 +9,7 @@ import CustomerData from './../components/CustomerData';
 import { fetchCustomers } from './../actions/fetchCustomers';
 import { updateCustomers } from './../actions/updateCustomer';
 import { SubmissionError } from 'redux-form';
-import { deleteCustomer } from './../actions/updateCustomer';
+import { deleteCustomer } from './../actions/deleteCustomer';
 
 class CustomerContainer extends Component {
     

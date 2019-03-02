@@ -1,24 +1,6 @@
 {
   "customers": [
     {
-      "id": "12344567",
-      "dni": "12344567",
-      "name": "JUAN PERES",
-      "age": 37
-    },
-    {
-      "id": "12345678",
-      "dni": "12345678",
-      "name": "JOTROD",
-      "age": 37
-    },
-    {
-      "id": "87654321",
-      "dni": "87654321",
-      "name": "otro",
-      "age": 37
-    },
-    {
       "name": "JUAN PER",
       "dni": "132",
       "age": 1,
@@ -29,12 +11,6 @@
       "dni": "233",
       "age": 1,
       "id": "HIuz8Hr"
-    },
-    {
-      "name": "RAUL",
-      "dni": "12321",
-      "age": 1,
-      "id": "NHzeWv-"
     }
   ],
   "posts": [
