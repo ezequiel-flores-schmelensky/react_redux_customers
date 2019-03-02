@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
 import { setPropsAsInitial } from '../helpers/setPropsAsInitial';
@@ -44,43 +44,54 @@ const toLower = value => value && value.toLowerCase();
 const onlyGrow = (value, previousValue, values) => 
     value && (!previousValue ? value : (value > previousValue ? value : previousValue));
 
-const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack, pristine, submitSucceeded }) => {
-    return (
-        <div>
-            <h2>Edición del cliente</h2>
-            <form onSubmit={handleSubmit}>
-                <Field 
-                    name="name" 
-                    label="Nombre"
-                    component={MyField} 
-                    type="text"
-                    parse={toUpper}
-                    format={toLower}></Field>
-                <Field 
-                    name="dni" 
-                    label="DNI"
-                    component={MyField}
-                    type="text"></Field>
-                <Field 
-                    name="age"
-                    label="Edad" 
-                    component={MyField} 
-                    validate={isNumber}
-                    type="number"
-                    parse={toNumber}
-                    normalize={onlyGrow}></Field>
-                <CustomerActions>
-                    <button type="submit" disabled={pristine || submitting}>Aceptar</button>
-                    <button type="button" disabled={submitting} onClick={onBack}>Cancelar</button>
-                </CustomerActions>
-                <Prompt 
-                    when={!pristine && !submitSucceeded}
-                    message="Se perderán los datos si continua">
-                </Prompt>
-            </form>
-        </div>
-    );
-};
+class CustomerEdit extends Component {
+    componentDidMount(){
+        if (this.cuadrodetexto) {
+            this.cuadrodetexto.focus();
+        }
+    }
+
+    render() {
+        const { handleSubmit, submitting, onBack, pristine, submitSucceeded } = this.props;
+        return (
+            <div>
+                <h2>Edición del cliente</h2>
+                Nuevo cuadro de texto: <input ref={txt => this.cuadrodetexto = txt} type="text"/>
+                <form onSubmit={handleSubmit}>
+                    <Field 
+                        name="name" 
+                        label="Nombre"
+                        component={MyField} 
+                        type="text"
+                        parse={toUpper}
+                        format={toLower}></Field>
+                    <Field 
+                        name="dni" 
+                        label="DNI"
+                        component={MyField}
+                        type="text"></Field>
+                    <Field 
+                        name="age"
+                        label="Edad" 
+                        component={MyField} 
+                        validate={isNumber}
+                        type="number"
+                        parse={toNumber}
+                        normalize={onlyGrow}></Field>
+                    <CustomerActions>
+                        <button type="submit" disabled={pristine || submitting}>Aceptar</button>
+                        <button type="button" disabled={submitting} onClick={onBack}>Cancelar</button>
+                    </CustomerActions>
+                    <Prompt 
+                        when={!pristine && !submitSucceeded}
+                        message="Se perderán los datos si continua">
+                    </Prompt>
+                </form>
+            </div>
+        ); 
+    }
+} 
+
 
 CustomerEdit.propTypes = {
     name: PropTypes.string,
